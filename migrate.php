@@ -1,6 +1,9 @@
 <?php
 include_once('config.php');
 
+/*
+ * Executes each migration contained in config.php
+ */
 foreach( $migrations as $migration ) {
     if ( ! array_key_exists('origin', $migration) ) throw new \RuntimeExcetion('Origin information is requered.');
 
@@ -9,6 +12,7 @@ foreach( $migrations as $migration ) {
      */
     $origin = $migration['origin'];
     $dumpCommand = buildDumpCommand( $origin );
+    echo "Executing dump command $dumpCommand \n";
     exec( $dumpCommand );
 
 
@@ -20,7 +24,7 @@ foreach( $migrations as $migration ) {
     $destination = $migration['destination'];
     $destination['dir'] = $dumpDir;
     $restoreCommand = buildRestoreCommand(  $destination );
-
+    echo "Executing restore command $restoreCommand \n";
     exec( $restoreCommand );
 }
 
