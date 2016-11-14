@@ -9,7 +9,7 @@ $migrations = [
             'password' => 'password',
             'port' => '27017',
             'database' => 'database',
-            'exclude-collection' => 'system.user'
+            'exclude-collection' => 'system.users'
         ],
         'destination' => [
             'host' => 'dest-host.com',
