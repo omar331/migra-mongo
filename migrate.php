@@ -64,6 +64,12 @@ function buildDumpCommand( Array $origin ) {
     if ( array_key_exists('database', $origin ) ) {
         $command .= sprintf(" --db %s", $origin['database']);
     }
+
+    if ( array_key_exists('authentication-database', $origin ) ) {
+        $command .= sprintf(" --authenticationDatabase %s", $origin['authentication-database']);
+    }
+
+
     if ( array_key_exists('exclude-collection', $origin ) ) {
         $command .= sprintf(" --excludeCollection %s", $origin['exclude-collection']);
     }
