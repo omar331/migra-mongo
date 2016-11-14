@@ -19,7 +19,7 @@ foreach( $migrations as $migration ) {
     /*
      * Builds the restore command
      */
-    $dumpDir = sprintf("./%s", $origin['database']);
+    $dumpDir = sprintf("./dump/%s", $origin['database']);
 
     $destination = $migration['destination'];
     $destination['dir'] = $dumpDir;
