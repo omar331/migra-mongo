@@ -65,7 +65,7 @@ function buildDumpCommand( Array $origin ) {
         $command .= sprintf(" --db %s", $origin['database']);
     }
     if ( array_key_exists('exclude-collection', $origin ) ) {
-        $command .= sprintf(" --excludeCollection %s", $origin['exclude-collection']);
+        $command .= sprintf(" --excludeCollections %s", $origin['exclude-collection']);
     }
 
    return $command;
