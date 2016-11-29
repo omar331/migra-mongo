@@ -1,0 +1,51 @@
+<?php
+/**
+ * Configurarions for migration (if any)
+ */
+$migrations = [
+    [
+        'origin' => [
+            'host' => '54.94.194.111',
+            'username' => 'tempx',
+            'password' => 'psw',
+            'port' => '27017',
+            'database' => 'myoriginaldb',
+            'exclude-collection' => 'system.user'
+        ],
+        'destination' => [
+            'host' => 'mydestserver.com',
+            'username' => 'username',
+            'password' => 'mypass',
+            'database' => 'mydb',
+        ]
+    ],
+];
+
+
+/**
+ * Configuration for backup
+ *
+ */
+$backupConfig = [
+    // where backup is going to be saved
+    'datadir' => __DIR__ . '/data',
+
+    'logfile' => __DIR__  . '/log/mongodb-backup.log',
+
+    // number of backups to be kept
+    'keep_latest' => 3,
+
+    // database server
+    'origin' => [
+        'host' => '54.94.222.111',
+        'username' => 'myuser',
+        'password' => 'pass',
+        'port' => '27017',
+        'database' => 'mydatabase',
+        'exclude-collection' => 'system.user'
+    ],
+
+    // mongodump command
+    'mongodump-command' => '/usr/bin/mongodump',
+];
+
