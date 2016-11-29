@@ -38,16 +38,25 @@ class Backup {
      * Run backup process
      */
     public function run() {
+        $this->logger->info('Starting backup process');
+
         //
         // Execute mongodb dump
         // Backup files are placed into data folder
         //
         try {
+            $this->logger->info('Dump a mongodb');
+
             $this->executeDump( $this->config );
         } catch ( ProcessFailedException $e ) {
             $this->logger->crit('failed to run mongodump command');
             return;
         }
+
+        $this->logger->info('Removing older backups');
+        $this->prune( $this->config['keep_latest'] );
+
+        $this->logger->info('Finishing process');
     }
 
 
