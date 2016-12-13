@@ -136,8 +136,10 @@ class Backup {
     }
 
 
-
-
+    function __call($name, $arguments)
+    {
+        // TODO: Implement __call() method.
+    }
 
     /**
      * Generate a name for backup
@@ -189,7 +191,7 @@ class Backup {
 
 
     /**
-     * Removes oldest backups in datadir
+     * Removes older backups from datadir
      * @param int $keep amount of latest backups to kept
      *
      */

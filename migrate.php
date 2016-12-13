@@ -113,6 +113,11 @@ function buildRestoreCommand( Array $destination ) {
         $command .= sprintf(" --db %s", $destination['database']);
     }
 
+    if ( array_key_exists('authentication-database', $destination ) ) {
+        $command .= sprintf(" --authenticationDatabase %s", $destination['authentication-database']);
+    }
+
+
     if ( array_key_exists('dir', $destination) ) {
         $command .= sprintf(" --dir %s", $destination['dir']);
     }
